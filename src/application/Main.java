@@ -1,0 +1,38 @@
+package application;
+
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.util.Objects;
+
+
+public class Main extends Application {
+
+	@Override
+	public void start(Stage primaryStage) {
+		try {
+			Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/layout/MainLayout.fxml")));
+			Scene scene = new Scene(root);
+			primaryStage.setScene(scene);
+			primaryStage.setTitle("TEST_VER_1");
+			primaryStage.show();
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public void stop() {
+		Platform.exit();
+		System.exit(0);
+	}
+	
+	public static void main(String[] args) {
+		launch(args);
+	}
+}
